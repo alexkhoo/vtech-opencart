@@ -1,10 +1,10 @@
-config.php
-admin/config.php
+public/config.php
+public/admin/config.php
 
 !index.html
 
-download
-image/cache/*.jpg
-image/cache/data/*
-system/cache
-system/logs
+public/download
+public/image/cache/*.jpg
+public/image/cache/data/*
+public/system/cache
+public/system/logs
