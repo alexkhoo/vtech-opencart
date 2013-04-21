@@ -6,7 +6,7 @@ html {
 body {
 	background:url(../image/bg.jpg) top center no-repeat;
 	color: #000000;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Myriad Pro", Verdana, Arial;
 	margin: 0px;
 	padding: 0px;
 }
@@ -65,7 +65,7 @@ label {
 }
 /* layout */
 #container {
-	width: 980px;
+	width: 1002px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: left;
@@ -90,16 +90,48 @@ label {
 }
 /* header */
 #header {
-	height: 90px;
-	margin-bottom: 7px;
-	padding-bottom: 4px;
+	height: 158px;
 	position: relative;
 	z-index: 99;
+	margin-bottom: 8px;
 }
 #header #logo {
 	position: absolute;
-	top: 25px;
-	left: 15px;
+	top: 50px;
+	left: 19px;
+}
+#navi{
+	position: absolute;
+	top: 130px;
+	left: 224px;
+}
+#navi a{
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
+	margin-right: 30px;
+	display: inline-block;
+}
+/*#navi a#home{
+	width: 39px;
+}
+#navi a#about{
+	width: 45px;
+}
+#navi a#product{
+	width: 60px;
+}
+#navi a#green{
+	width: 200px;
+}
+#navi a#tbs{
+	width: 56px;
+}
+#navi a#contact{
+	width: 59px;
+}*/
+#navi a.selected{
+	font-weight: bold;
 }
 #language {
 	position: absolute;
@@ -259,33 +291,29 @@ label {
 }
 #header #search {
 	position: absolute;
-	top: 15px;
-	right: 0px;
-	width: 298px;
+	top: 43px;
+	right: 96px;
+	width: 194px;
 	z-index: 15;
 }
 #header .button-search {
 	position: absolute;
-	left: 0px;
+	right: 10px;
+	top: 9px;
 	background: url('../image/button-search.png') center center no-repeat;
-	width: 28px;
-	height: 24px;
-	border-right: 1px solid #CCCCCC;
+	width: 14px;
+	height: 15px;
 	cursor: pointer;
 }
 #header #search input {
-	background: #FFF;
-	padding: 1px 1px 1px 33px;
-	width: 262px;
-	height: 21px;
-	border: 1px solid #CCCCCC;
-	-webkit-border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px 3px 3px 3px;
-	-khtml-border-radius: 3px 3px 3px 3px;
-	border-radius: 3px 3px 3px 3px;
-	-webkit-box-shadow: 0px 2px 0px #F0F0F0;
-	-moz-box-shadow: 0px 2px 0px #F0F0F0;
-	box-shadow: 0px 2px 0px #F0F0F0;
+	background: url('../image/search-bg.png') top left no-repeat;
+	width: 174px;
+	height: 33px;
+	border: 0;
+	padding: 0 10px;
+	color: #fff;
+	font-family: "Myriad Pro", Verdana, Arial;
+	font-size: 18px;
 }
 #header #welcome {
 	position: absolute;
