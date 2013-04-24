@@ -47,6 +47,14 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 //--></script>
 <?php } ?>
 <?php echo $google_analytics; ?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </head>
 <body>
 <div id="container">
@@ -59,13 +67,14 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
     <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
   </div>
   <div id="navi">
-    <a href="#" id="home">HOME</a>
-    <a href="#" id="about">ABOUT</a>
-    <a href="#" id="product">PRODUCT</a>
-    <a href="#" id="green">GREEN ADHESIVES &amp; SEALANTS</a>
-    <a href="#" id="tbs">TBS/MDS</a>
-    <a href="#" id="contact">CONTACT</a>
+    <a href="index.php?route=common/home" id="home">HOME</a>
+    <a href="index.php?route=information/information&information_id=4" id="about">ABOUT</a>
+    <a href="index.php?route=product/category&path=59" id="product">PRODUCT</a>
+    <a href="index.php?route=information/green-adhesives" id="green">GREEN ADHESIVES &amp; SEALANTS</a>
+    <a href="index.php?route=information/tds-msds" id="tds">TDS/MSDS</a>
+    <a href="index.php?route=information/contact" id="contact">CONTACT</a>
   </div>
 </div>
 
-<div id="notification"></div>
+<div id="bg">
+  <div id="notification"></div>

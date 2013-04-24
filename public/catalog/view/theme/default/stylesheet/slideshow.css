@@ -9,8 +9,33 @@
  * March 2010
  */
 /* The Nivo Slider styles */
+.slideshow{
+	width: 958px;
+	height: 401px;
+	position: relative;
+	background: url('../image/slideshow-bg.gif') top left no-repeat;
+}
+.slideshow #title{
+	background: url('../image/title.png') top left no-repeat;
+	position: absolute;
+	width: 425px;
+	height: 34px;
+	right: 80px;
+	top: 25px;
+}
+.slideshow #man{
+	background: url('../image/man.png') top left no-repeat;
+	position: absolute;
+	width: 260px;
+	height: 329px;
+	right: -23px;
+	top: 74px;
+	z-index: 99;
+}
 .nivoSlider {
 	position: relative;
+	left: 10px;
+	top: 74px;
 }
 .nivoSlider img {
 	position: absolute;
@@ -89,8 +114,7 @@
 
 .slideshow .nivoSlider {
 	position: relative;
-	background: #fff url('../image/loading.gif') no-repeat 50% 50%;	
-	margin-bottom: 20px;
+	background: #fff url('../image/loading.gif') no-repeat 50% 50%;
 }
 .slideshow .nivoSlider img {
 	position: absolute;

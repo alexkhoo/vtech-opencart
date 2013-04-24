@@ -5,26 +5,7 @@ class ControllerInformationContact extends Controller {
   	public function index() {
 		$this->language->load('information/contact');
 
-    	$this->document->setTitle($this->language->get('heading_title'));  
-	 
-    	if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-			$mail = new Mail();
-			$mail->protocol = $this->config->get('config_mail_protocol');
-			$mail->parameter = $this->config->get('config_mail_parameter');
-			$mail->hostname = $this->config->get('config_smtp_host');
-			$mail->username = $this->config->get('config_smtp_username');
-			$mail->password = $this->config->get('config_smtp_password');
-			$mail->port = $this->config->get('config_smtp_port');
-			$mail->timeout = $this->config->get('config_smtp_timeout');				
-			$mail->setTo($this->config->get('config_email'));
-	  		$mail->setFrom($this->request->post['email']);
-	  		$mail->setSender($this->request->post['name']);
-	  		$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
-	  		$mail->setText(strip_tags(html_entity_decode($this->request->post['enquiry'], ENT_QUOTES, 'UTF-8')));
-      		$mail->send();
-
-	  		$this->redirect($this->url->link('information/contact/success'));
-    	}
+    	$this->document->setTitle($this->language->get('heading_title'));      	
 
       	$this->data['breadcrumbs'] = array();
 
@@ -69,6 +50,18 @@ class ControllerInformationContact extends Controller {
 			$this->data['error_enquiry'] = $this->error['enquiry'];
 		} else {
 			$this->data['error_enquiry'] = '';
+		}
+
+		if (isset($this->error['enquiry_tel'])) {
+			$this->data['error_tel'] = $this->error['enquiry_tel'];
+		} else {
+			$this->data['error_tel'] = '';
+		}	
+
+		if (isset($this->error['enquiry_country'])) {
+			$this->data['error_country'] = $this->error['enquiry_country'];
+		} else {
+			$this->data['error_country'] = '';
 		}		
 		
  		if (isset($this->error['captcha'])) {
@@ -102,12 +95,98 @@ class ControllerInformationContact extends Controller {
 		} else {
 			$this->data['enquiry'] = '';
 		}
+
+		if (isset($this->request->post['company'])) {
+			$this->data['company'] = $this->request->post['company'];
+		} else {
+			$this->data['company'] = '';
+		}
+
+		if (isset($this->request->post['position'])) {
+			$this->data['position'] = $this->request->post['position'];
+		} else {
+			$this->data['position'] = '';
+		}
+
+		if (isset($this->request->post['enquiry_address'])) {
+			$this->data['enquiry_address'] = $this->request->post['enquiry_address'];
+		} else {
+			$this->data['enquiry_address'] = '';
+		}
+
+		if (isset($this->request->post['enquiry_city'])) {
+			$this->data['enquiry_city'] = $this->request->post['enquiry_city'];
+		} else {
+			$this->data['enquiry_city'] = '';
+		}
+
+		if (isset($this->request->post['enquiry_state'])) {
+			$this->data['enquiry_state'] = $this->request->post['enquiry_state'];
+		} else {
+			$this->data['enquiry_state'] = '';
+		}
+
+		if (isset($this->request->post['enquiry_postal'])) {
+			$this->data['enquiry_postal'] = $this->request->post['enquiry_postal'];
+		} else {
+			$this->data['enquiry_postal'] = '';
+		}
+
+		if (isset($this->request->post['enquiry_country'])) {
+			$this->data['enquiry_country'] = $this->request->post['enquiry_country'];
+		} else {
+			$this->data['enquiry_country'] = '';
+		}
+
+		if (isset($this->request->post['enquiry_tel'])) {
+			$this->data['enquiry_tel'] = $this->request->post['enquiry_tel'];
+		} else {
+			$this->data['enquiry_tel'] = '';
+		}
+
+		if (isset($this->request->post['enquiry_fax'])) {
+			$this->data['enquiry_fax'] = $this->request->post['enquiry_fax'];
+		} else {
+			$this->data['enquiry_fax'] = '';
+		}
+
+		if (isset($this->request->post['title'])) {
+			$this->data['title'] = $this->request->post['title'];
+		} else {
+			$this->data['title'] = '';
+		}
+
+		if (isset($this->request->post['nature'])) {
+			$this->data['nature'] = $this->request->post['nature'];
+		} else {
+			$this->data['nature'] = '';
+		}
 		
 		if (isset($this->request->post['captcha'])) {
 			$this->data['captcha'] = $this->request->post['captcha'];
 		} else {
 			$this->data['captcha'] = '';
-		}		
+		}	
+
+		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+			$mail = new Mail();
+			$mail->protocol = $this->config->get('config_mail_protocol');
+			$mail->parameter = $this->config->get('config_mail_parameter');
+			$mail->hostname = $this->config->get('config_smtp_host');
+			$mail->username = $this->config->get('config_smtp_username');
+			$mail->password = $this->config->get('config_smtp_password');
+			$mail->port = $this->config->get('config_smtp_port');
+			$mail->timeout = $this->config->get('config_smtp_timeout');				
+			$mail->setTo($this->config->get('config_email'));
+	  		$mail->setFrom($this->request->post['email']);
+	  		$mail->setSender($this->request->post['name']);
+	  		$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
+	  		$msg_body = "Title: ".$this->request->post['title']."\nSender's Name: ".$this->request->post['name']."\nCompany Name: ".$this->request->post['company']."\nPosition in Company: ".$this->request->post['position']."\nAddress: ".$this->request->post['enquiry_address']."\nCity: ".$this->request->post['enquiry_city']."\nProvince/State: ".$this->request->post['enquiry_state']."\nPostal/Zip: ".$this->request->post['enquiry_postal']."\nCountry: ".$this->request->post['enquiry_country']."\nSender's email: ".$this->request->post['email']. "\nTel No: ".$this->request->post['enquiry_tel']."\nFax No: ".$this->request->post['enquiry_fax']."\nNature of Enquiry: ".$this->request->post['nature']."\nEnquiry:".$this->request->post['enquiry']." ";
+	  		$mail->setText(strip_tags(html_entity_decode($msg_body, ENT_QUOTES, 'UTF-8')));
+      		$mail->send();
+
+	  		$this->redirect($this->url->link('information/contact/success'));
+    	}	
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/contact.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/information/contact.tpl';
@@ -175,6 +254,14 @@ class ControllerInformationContact extends Controller {
   	protected function validate() {
     	if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 32)) {
       		$this->error['name'] = $this->language->get('error_name');
+    	}
+
+    	if ((utf8_strlen($this->request->post['enquiry_tel']) < 3) || (utf8_strlen($this->request->post['enquiry_tel']) > 32)) {
+      		$this->error['enquiry_tel'] = $this->language->get('error_tel');
+    	}
+
+    	if ((utf8_strlen($this->request->post['enquiry_country']) < 1) || (utf8_strlen($this->request->post['enquiry_country']) > 96)) {
+      		$this->error['enquiry_country'] = $this->language->get('error_country');
     	}
 
     	if (!preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {

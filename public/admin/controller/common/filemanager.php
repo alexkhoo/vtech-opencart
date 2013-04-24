@@ -103,7 +103,8 @@ class ControllerCommonFileManager extends Controller {
 			'.jpg',
 			'.jpeg',
 			'.png',
-			'.gif'
+			'.gif',
+			'.pdf'
 		);
 		
 		$files = glob(rtrim($directory, '/') . '/*');
@@ -433,7 +434,7 @@ class ControllerCommonFileManager extends Controller {
 					$json['error'] = $this->language->get('error_directory');
 				}
 				
-				if ($this->request->files['image']['size'] > 300000) {
+				if ($this->request->files['image']['size'] > 2000000) {
 					$json['error'] = $this->language->get('error_file_size');
 				}
 				

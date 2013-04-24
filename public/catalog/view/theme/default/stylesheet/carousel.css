@@ -1,5 +1,4 @@
 .jcarousel-skin-opencart .jcarousel-container {
-	background: #FFF;
 	margin-bottom: 20px;
 }
 .jcarousel-skin-opencart .jcarousel-direction-rtl {
@@ -34,7 +33,7 @@
  */
 .jcarousel-skin-opencart .jcarousel-next-horizontal {
 	position: absolute;
-	top: 23px;
+	top: 38px;
 	right: 5px;
 	width: 32px;
 	height: 32px;
@@ -56,7 +55,7 @@
 }
 .jcarousel-skin-opencart .jcarousel-prev-horizontal {
 	position: absolute;
-	top: 23px;
+	top: 38px;
 	left: 0px;
 	width: 32px;
 	height: 32px;
@@ -75,4 +74,13 @@
 .jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal, .jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal:hover, .jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal:focus, .jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal:active {
 	cursor: default;
 	background: none;
+}
+.jcarousel-skin-opencart a{
+	font-weight: bold;
+	text-decoration: none;
+	color: #0054a4;
+}
+.jcarousel-skin-opencart a span{
+	background: url('../image/arrow.gif') 0 2px no-repeat;
+	padding-left: 15px;
 }

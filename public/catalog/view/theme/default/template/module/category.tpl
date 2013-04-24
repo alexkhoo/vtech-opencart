@@ -1,5 +1,17 @@
+<div id="my-list" class="box">
+  <div class="box-content">
+    <div class="box-heading">My List</div>
+      <ul class="box-category">
+        <?php foreach ($mylist_products as $mylist_product) { ?>
+        <li id="<?php echo $mylist_product['product_id']; ?>"><a href="<?php echo $mylist_product['href']; ?>"><?php echo $mylist_product['name']; ?></a><a class="remove" onclick="removeMyList('<?php echo $mylist_product['product_id']; ?>');"></a></li>
+        <? } ?>
+      </ul>
+      <a href="index.php?route=information/enquiry" class="btn"><img src="catalog/view/theme/default/image/btn-enquiry.png" /></a>
+      <div class="clear"></div>
+  </div>
+</div>
+
 <div class="box">
-  <div class="box-heading"><?php echo $heading_title; ?></div>
   <div class="box-content">
     <ul class="box-category">
       <?php foreach ($categories as $category) { ?>
@@ -26,4 +38,8 @@
       <?php } ?>
     </ul>
   </div>
+</div>
+
+<div id="facebook">
+<div class="fb-like-box" data-href="http://www.facebook.com/platform" data-width="308" data-show-faces="true" data-stream="true" data-header="true"></div>
 </div>

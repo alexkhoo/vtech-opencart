@@ -62,6 +62,27 @@ class ControllerModuleCategory extends Controller {
 				'href'        => $this->url->link('product/category', 'path=' . $category['category_id'])
 			);	
 		}
+
+		if (!isset($this->session->data['mylist'])) {
+			$this->session->data['mylist'] = array();
+		}
+
+		$this->data['mylist_products'] = array();
+	
+		foreach ($this->session->data['mylist'] as $key => $product_id) {
+			$product_info = $this->model_catalog_product->getProduct($product_id);
+			
+			if ($product_info) { 
+														
+				$this->data['mylist_products'][] = array(
+					'product_id' => $product_info['product_id'],
+					'name'       => $product_info['name'],
+					'href'       => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
+				);
+			} else {
+				unset($this->session->data['mylist'][$key]);
+			}
+		}	
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/category.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/module/category.tpl';

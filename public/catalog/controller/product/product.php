@@ -263,6 +263,10 @@ class ControllerProductProduct extends Controller {
 			$this->data['button_compare'] = $this->language->get('button_compare');			
 			$this->data['button_upload'] = $this->language->get('button_upload');
 			$this->data['button_continue'] = $this->language->get('button_continue');
+
+			$this->data['action_tell'] = $this->url->link('information/tell-a-friend', $url . '&product_id=' . $this->request->get['product_id']);
+			$this->data['action_add'] = $product_info['name'];
+			$this->data['action_list'] = $this->url->link('product/product', $url . '&product_id=' . $this->request->get['product_id']);
 			
 			$this->load->model('catalog/review');
 
@@ -704,6 +708,66 @@ class ControllerProductProduct extends Controller {
 		}	
 		
 		$this->response->setOutput(json_encode($json));		
+	}
+
+	public function addmylist() {
+		$this->language->load('product/mylist');
+		
+		$json = array();
+
+		if (!isset($this->session->data['mylist'])) {
+			$this->session->data['mylist'] = array();
+		}
+				
+		if (isset($this->request->post['product_id'])) {
+			$product_id = $this->request->post['product_id'];
+		} else {
+			$product_id = 0;
+		}
+		
+		$this->load->model('catalog/product');
+		
+		$product_info = $this->model_catalog_product->getProduct($product_id);
+		
+		if ($product_info) {
+			if (!in_array($this->request->post['product_id'], $this->session->data['mylist'])) {	
+				$this->session->data['mylist'][] = $this->request->post['product_id'];
+
+				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name']);
+				$json['name'] = $product_info['name'];
+				$json['href'] = $this->url->link('product/product', 'product_id=' . $product_info['product_id']);
+			}
+						
+			
+		}	
+		
+		$this->response->setOutput(json_encode($json));
+	}
+
+	public function removemylist() {
+		$this->language->load('product/mylist');
+		
+		$json = array();
+
+		if (!isset($this->session->data['mylist'])) {
+			$this->session->data['mylist'] = array();
+		}
+				
+		if (isset($this->request->post['product_id'])) {
+			$product_id = $this->request->post['product_id'];
+		} else {
+			$product_id = 0;
+		}
+
+		$key = array_search($this->request->post['product_id'], $this->session->data['mylist']);
+			
+		if ($key !== false) {
+			unset($this->session->data['mylist'][$key]);
+		}
+						
+		$json['success'] = sprintf($this->language->get('text_remove'));
+		
+		$this->response->setOutput(json_encode($json));
 	}
 }
 ?>
