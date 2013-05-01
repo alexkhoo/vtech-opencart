@@ -8,9 +8,9 @@
 		<img src="catalog/view/theme/default/image/home-01.png" style="margin-bottom: 11px" />
 		<div class="clear"></div>
 		<img src="catalog/view/theme/default/image/home-02.png" style="float: left; margin-right: 21px;" />
-		<p style="padding-top: 24px; color: #fff">Established in August 2002, Vital Technical Sdn. Bhd. has grown into one of the leading bonding solutions providers in Malaysia.<br />
-<br />
-We manufacture, package and distribute a wide range of high quality adhesive, RTV Gasket Maker, Polyurethane (PU) Sealant and waterproofing products in a variety of packaging options to cater to the specific needs of diverse market segments. <br />
+		<p style="color: #fff;">Established in August 2002, Vital Technical Sdn Bhd is one of the leading bonding solutions providers in the world.<br /><br />
+
+We manufacture, package and distribute a wide range of high quality adhesive, sealant and waterproofing products in a variety of packaging options to cater to the needs of various market segment. <br />
 <a href="index.php?route=information/information&information_id=4"><span style="font-style: italic">More</span>&gt;&gt;</a></p>
 		<div class="clear"></div>
 	</div>
@@ -37,6 +37,7 @@ We manufacture, package and distribute a wide range of high quality adhesive, RT
 			</ul>			
 		
 		<div class="clear"></div>
+		</div>
 	</div>
 	<a href="#"><img src="catalog/view/theme/default/image/icons-fb.gif" style="margin-right: 22px; float: left" /></a>
 	<a href="#"><img src="catalog/view/theme/default/image/icons-youtube.gif" style="margin-right: 38px; float: left" /></a>
