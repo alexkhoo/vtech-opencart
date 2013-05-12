@@ -114,7 +114,7 @@ class ControllerCatalogInformation extends Controller {
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
 		} else {
-			$sort = 'id.title';
+			$sort = 'i.sort_order';
 		}
 		
 		if (isset($this->request->get['order'])) {

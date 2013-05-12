@@ -19,7 +19,7 @@ $(document).ready(function() {
 			$('body').addClass('home');
 		} else if (hashes == 'route=information/information&information_id=4') {
 			$('#navi #about').addClass('selected');	
-		} else if (route == 'information/green-adhesives') {
+		} else if (route == 'information/green-adhesives' || route == 'information/green-adhesives-sealant' || route == 'information/green-adhesives-construction' || route == 'information/green-adhesives-solvent' || route == 'information/green-adhesives-contact') {
 			$('#navi #green').addClass('selected');	
 		} else if (route == 'information/tds-msds') {
 			$('#navi #tds').addClass('selected');	

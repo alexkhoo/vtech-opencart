@@ -7,12 +7,12 @@
     <?php } ?>
   </div>
   <div class="htabs" id="tabs">
-    <a class="selected" href="index.php?route=information/green-adhesives" style="display: inline;">Introduction</a>
-    <a href="index.php?route=information/green-adhesives-sealant" style="display: inline;">Sealant</a>
+    <a href="index.php?route=information/green-adhesives" style="display: inline;">Introduction</a>
+    <a class="selected" href="index.php?route=information/green-adhesives-sealant" style="display: inline;">Sealant</a>
     <a href="index.php?route=information/green-adhesives-construction" style="display: inline;">Construction Adhesive</a>
     <a href="index.php?route=information/green-adhesives-solvent" style="display: inline;">Solvent Cement</a>
     <a href="index.php?route=information/green-adhesives-contact" style="display: inline;">Contact Adhesive</a>
   </div>
-  <div id="tab-introduction" class="tab-content"><?php echo $introduction; ?></div>
+  <div id="tab-sealant" class="tab-content"><?php echo $sealant; ?></div>
   <?php echo $content_bottom; ?></div>
 <?php echo $footer; ?>

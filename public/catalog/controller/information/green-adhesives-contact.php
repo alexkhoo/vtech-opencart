@@ -1,5 +1,5 @@
 <?php  
-class ControllerInformationGreenAdhesives extends Controller {
+class ControllerInformationGreenAdhesivesContact extends Controller {
 	public function index() {
     	$this->language->load('information/green-adhesives');
 
@@ -17,37 +17,20 @@ class ControllerInformationGreenAdhesives extends Controller {
 
       	$this->data['breadcrumbs'][] = array(
         	'text'      => $this->language->get('heading_title'),
-			'href'      => $this->url->link('information/green-adhesives'),      	
+			'href'      => $this->url->link('information/green-adhesives-contact'),      	
         	'separator' => $this->language->get('text_separator')
       	);	
-
-      	$introduction = $this->model_catalog_information->getInformation('8');
-
-      	$this->data['introduction'] = html_entity_decode($introduction['description'], ENT_QUOTES, 'UTF-8');
-
-      	$sealant = $this->model_catalog_information->getInformation('9');
-
-      	$this->data['sealant'] = html_entity_decode($sealant['description'], ENT_QUOTES, 'UTF-8');
-
-      	$construction = $this->model_catalog_information->getInformation('10');
-
-      	$this->data['construction'] = html_entity_decode($construction['description'], ENT_QUOTES, 'UTF-8');
-
-      	$solvent = $this->model_catalog_information->getInformation('11');
-
-      	$this->data['solvent'] = html_entity_decode($solvent['description'], ENT_QUOTES, 'UTF-8');
 
       	$contact = $this->model_catalog_information->getInformation('12');
 
       	$this->data['contact'] = html_entity_decode($contact['description'], ENT_QUOTES, 'UTF-8');
-
 		
     	$this->data['heading_title'] = $this->language->get('heading_title');
 			
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/green-adhesives.tpl')) {
-			$this->template = $this->config->get('config_template') . '/template/information/green-adhesives.tpl';
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/green-adhesives-contact.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/information/green-adhesives-contact.tpl';
 		} else {
-			$this->template = 'default/template/information/green-adhesives.tpl';
+			$this->template = 'default/template/information/green-adhesives-contact.tpl';
 		}
 
 		$this->document->addScript('catalog/view/javascript/jquery/tabs.js');

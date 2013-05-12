@@ -6,7 +6,7 @@ html {
 body {
 	background:url(../image/bg.jpg) top center no-repeat #DADBDD;
 	color: #666;
-	font-family: "Myriad Pro", Verdana, Arial;
+	font-family: Helvetica, "Myriad Pro", Verdana, Arial;
 	margin: 0px;
 	padding: 0px;
 }
@@ -1786,13 +1786,14 @@ td{
 	right: 198px;
 }
 #category-list .box .box-content{
-	padding: 10px 0 10px 20px;
+	padding: 13px 0 13px 20px;
 }
 #category-list ul.box-category li{
 	position: relative;
 }
 #category-list ul.box-category li a{
 	line-height: 16px;
+	font-family: "Myriad Pro", Verdana, Arial;
 }
 #category-list ul.box-category li a:hover {
     background: url("../image/li-bg.png") no-repeat scroll left center transparent;
@@ -1805,7 +1806,7 @@ td{
     padding: 5px 5px 0 0;
 }
 #category-list ul.box-category > li {
-    padding: 5px 5px 5px 0;
+    padding: 4px 5px 4px 0;
 }
 #category-list ul.box-category ul{
 	display: none;
